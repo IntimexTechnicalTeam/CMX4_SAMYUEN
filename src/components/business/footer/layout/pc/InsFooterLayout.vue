@@ -20,18 +20,18 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="general-query">
+                    <!-- <li class="general-query">
                         <p class="title">{{$t('Display.GeneralQuery')}}</p>
                         <p>(852) 3105-0156</p>
                         <p>info@ptx.hk</p>
-                    </li>
-                    <li class="office-hours">
+                    </li> -->
+                    <!-- <li class="office-hours">
                         <p>{{$t('Display.OfficeHours')}}：</p>
                         <p>{{$t('Display.Hour0')}}{{$t('Display.Hour1')}}</p>
                         <p>{{$t('Display.Hour2')}}</p>
                         <p>{{$t('Display.Hour3')}}</p>
-                    </li>
-                    <li class="address">
+                    </li> -->
+                    <!-- <li class="address">
                         <div class="footer-logo">
                             <img src="/static/Images/int-logo.png" />
                         </div>
@@ -39,11 +39,12 @@
                             <p>{{$t('DeliveryAddress.Address')}}：</p>
                             <p>{{$t('Display.AddrInfo')}}</p>
                         </div>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
-            <ins-copyright />
+
         </div>
+        <ins-copyright />
     </div>
 </template>
 
@@ -72,58 +73,56 @@ export default class InsFooterLayout extends Vue {
 
 <style scoped lang="less">
 #footer {
-  background-color: #535353;
+  background-color: #B8B38B;
 }
 .footer-container {
     .company-info {
-        width: 63.5%;
+        width: 1200px;
         min-width: 900px;
         margin: 0 auto;
-        padding: 70px 0 20px;
+        padding: 20px 0 20px;
         > ul {
             display: flex;
             justify-content: center;
             > li {
                 position: relative;
                 color: #fff;
-                font-size: 16.5px;
+                font-size: 16px;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 box-sizing: border-box;
-                max-width: 34%;
+                // max-width: 34%;
 
-                &:after {
-                    content: "";
-                    width: 1px;
-                    height: 125px;
-                    background-color: #fff;
-                    position: absolute;
-                    top: calc(50% - 62.5px);
-                    right: 0;
-                }
+                // &:after {
+                //     content: "";
+                //     width: 1px;
+                //     height: 125px;
+                //     background-color: #fff;
+                //     position: absolute;
+                //     top: calc(50% - 62.5px);
+                //     right: 0;
+                // }
 
-                &:last-child::after {
-                    width: 0;
-                }
+                // &:last-child::after {
+                //     width: 0;
+                // }
 
                 &.footer-nav {
-                    width: 18%;
+                    // width: 18%;
                     > ul {
+                        display: flex;
+                        justify-content: space-between;
                         > li {
-                            margin-bottom: 16px;
                             a {
                                 font-size: 16px;
                                 color: #fff;
-                                text-decoration: underline;
+                                padding: 0 40px;
+                                // text-decoration: underline;
                             }
 
                             > a {
                                 font-size: 18px;
-                            }
-
-                            &:last-child {
-                                margin-bottom: 0;
                             }
                         }
                     }

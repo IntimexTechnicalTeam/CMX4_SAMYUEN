@@ -9,24 +9,42 @@ h4,
 h5,
 h6,
 div {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
+
 ul,
 li {
-  list-style: none;
+    list-style: none;
 }
+
 a {
-  text-decoration: none;
+    text-decoration: none;
 }
+
 .clear {
-  clear: both;
+    clear: both;
 }
 
 .pc {
-  font-size: 16px;
+    font-size: 16px;
+    background-color: #f2f1e2;
 }
 
 .mobile {
-  font-size: 1.1rem;
+    font-size: 1.1rem;
+    background-color: #f2f1e2;
+}
+
+.fix {
+    *zoom: 1;
+}
+
+.fix:after {
+    display: block;
+    content: "clear";
+    height: 0;
+    clear: both;
+    overflow: hidden;
+    visibility: hidden;
 }

@@ -9,17 +9,17 @@
       /></a>
       <span v-show="show">
         <a
-          href="https://api.whatsapp.com/send?phone=85262891789&text=%E6%88%91%E6%83%B3%E6%9F%A5%E8%A9%A2%E4%B8%80%E4%B8%8B%E6%B3%B0%E7%BE%8E%E7%A7%91%E6%8A%80%E7%9A%84%E6%9C%8D%E5%8B%99"
+          href="https://api.whatsapp.com/send?phone=85268868601&text=我想查詢一下"
           target="_blank"
           ><img src="/static/Images/sidebar/whatsapp.png"
         /></a>
-        <a href="javascript:;" class="livechat" @click="showLivechat"
+        <!-- <a href="javascript:;" class="livechat" @click="showLivechat"
           ><img src="/static/Images/sidebar/facebook.png"
-        /></a>
-        <a href="tel:85231050156" class="fb-button" target="_blank"
+        /></a> -->
+        <a href="tel:85268868601" class="fb-button" target="_blank"
           ><img src="/static/Images/sidebar/phone.png"
         /></a>
-        <a href="mailto:info@hktaste.com.hk" class="fb-button"
+        <a href="mailto:masterszechai@gmail.com" class="fb-button"
           ><img src="/static/Images/sidebar/news.png"
         /></a>
       </span>
@@ -145,13 +145,7 @@ export default class InsSidebar extends Vue {
   -moz-box-shadow: 0 5px 40px rgba(0, 0, 0, 0.16);
   -o-box-shadow: 0 5px 40px rgba(0, 0, 0, 0.16);
 }
-@media screen and (max-width: 768px) {
-  .fb-widget {
-    width: 300px;
-    height: 500px;
-    right: 5rem;
-  }
-}
+
 .fb-credit {
   text-align: center;
   margin-top: 8px;
@@ -201,12 +195,13 @@ export default class InsSidebar extends Vue {
 }
 #sidebar {
   img {
-    width: 4rem;
+    width: 45px;
+    display: block;
   }
   position: fixed;
   right: 0 !important;
   bottom: 60px;
-  width: 4rem;
+  width: 45px;
   // text-align: center;
   z-index: 997;
   line-height: 0;
@@ -234,5 +229,19 @@ export default class InsSidebar extends Vue {
 }
 a {
   line-height: 0;
+}
+@media screen and (max-width: 768px) {
+  .fb-widget {
+    width: 300px;
+    height: 500px;
+    right: 5rem;
+  }
+  #sidebar{
+    width: 3rem;
+    img{
+      width: 3rem;
+      display: block;
+    }
+  }
 }
 </style>

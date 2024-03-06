@@ -159,15 +159,16 @@ export default class insSearch extends Vue {
              }
              .titlename {
                 font-size: 16px;
-                 color: #627999;
+                 color: #C3B44F;
                 margin-bottom: 0.5rem;
                font-weight: bold;
                  }
             }
             a {
 
-               color: #627999;
+               color: #C3B44F;
                 display: inline-block;
+                width: 100%;
             }
 
             &:hover {
@@ -266,7 +267,7 @@ export default class insSearch extends Vue {
      .cmsList {
         li {
             font-size: 1.3rem;
-            margin-bottom: 1rem;
+            margin-bottom: 2rem;
         .cover {
          margin-bottom: .1rem;
          position: relative;
@@ -281,18 +282,21 @@ export default class insSearch extends Vue {
            .data {
              color: #999999;
              font-size: 1.2rem;
+             margin: 0.5rem 0;
              }
              .titlename {
-                font-size: 1.5rem;
-                 color: #627999;
+                font-size: 1.4rem;
+                 color: #C3B44F;
                 margin-bottom: 0.5rem;
                font-weight: bold;
                  }
             }
             a {
                 padding: 0.5rem;
-               color: #627999;
+               color: #C3B44F;
                 display: inline-block;
+                width: 100%;
+                box-sizing: border-box;
 
             }
 

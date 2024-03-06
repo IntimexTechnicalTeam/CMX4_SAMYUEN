@@ -3,22 +3,22 @@
     <div class="footer-box">
       <div class="content-box">
         <div class="footer-menu">
-          <Menu type="footer" :backColor="'#535353'" :textColor="'#fff'" :uniqueOpened="true" />
+          <Menu type="footer" :backColor="'transparent'" :textColor="'#fff'" :uniqueOpened="true" />
         </div>
-        <div class="general-query">
+        <!-- <div class="general-query">
           <p class="title">{{$t('Display.GeneralQuery')}}</p>
           <p>(852) 3105-0156</p>
           <p>info@ptx.hk</p>
-        </div>
-        <div class="office-hours">
+        </div> -->
+        <!-- <div class="office-hours">
           <p class="title">{{$t('Display.OfficeHours')}}：</p>
           <div>
             <p>{{$t('Display.Hour0')}}</p>
             <p>{{$t('Display.Hour1')}}{{$t('Display.Hour2')}}</p>
           </div>
           <p>{{$t('Display.Hour3')}}</p>
-        </div>
-        <div class="address">
+        </div> -->
+        <!-- <div class="address">
           <div class="footer-logo">
               <img src="/static/Images/int-logo.png" />
           </div>
@@ -26,7 +26,7 @@
               <p>{{$t('DeliveryAddress.Address')}}：</p>
               <p>{{$t('Display.AddrInfo')}}</p>
           </div>
-        </div>
+        </div> -->
       </div>
       <ins-copyright />
     </div>
@@ -65,7 +65,7 @@ export default class InsFooterLayout extends Vue {
 <style lang="less">
 #footer {
   .footer-menu {
-    padding: 3.8rem 0;
+    padding: 2rem 0;
 
     >ul.el-menu {
       border: 0 !important;
@@ -74,7 +74,7 @@ export default class InsFooterLayout extends Vue {
         height: auto;
         line-height: unset;
         padding: 0 !important;
-        border-top: 1px solid #e5e5e5;
+        border-bottom: 1px solid #e5e5e5;
         > a {
           display: block;
           padding: 1.5rem 1.5rem;
@@ -84,7 +84,7 @@ export default class InsFooterLayout extends Vue {
         }
 
         &:last-child {
-          border-bottom: 1px solid #e5e5e5;
+          border-bottom: none;
         }
       }
 
@@ -163,21 +163,21 @@ export default class InsFooterLayout extends Vue {
 <style scoped lang="less">
 #footer {
   .footer-box {
-    background-color: #535353;
+    background-color: #B8B38B;
     color: #fff;
 
     .content-box {
       width: 90%;
       margin: 0 auto;
 
-      .title() {
+      .title {
         font-size: 1.2rem;
         display: block;
         margin-bottom: 0.5rem;
         margin-right: 0;
       }
 
-      .box() {
+      .box {
         padding: 0 1rem;
       }
 

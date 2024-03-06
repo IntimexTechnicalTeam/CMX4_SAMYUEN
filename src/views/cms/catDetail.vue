@@ -168,9 +168,12 @@ export default class insNews extends Vue {
 
 .mobile {
     .catDetail {
+      background-color: #f2f1e2;
         .catContent {
-          width: 92%;
-          margin: 2rem auto 5rem;
+          width: 90%;
+          margin: 0 auto;
+          padding-top: 2rem;
+          padding-bottom: 3rem;
             .layer {
                 font-size: 1.2rem;
             }

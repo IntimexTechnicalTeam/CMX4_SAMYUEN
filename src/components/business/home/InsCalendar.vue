@@ -96,11 +96,12 @@ export default class InsCalendar extends Vue {
 
 .pc {
     .ins-calendar {
-        background-color: #0061af;
+        background-color: #C3B44F;
         text-align: center;
         box-sizing: border-box;
         padding-top: 25px;
         width: 570px;
+        margin: 0 auto;
         .el-calendar__header {
             border-bottom: 0;
             position: relative;
@@ -108,7 +109,7 @@ export default class InsCalendar extends Vue {
 
             .el-calendar__title {
                 display: inline-block;
-                color: #dfdc81;
+                color: #fff;
                 font-size: 25px;
             }
 
@@ -144,9 +145,9 @@ export default class InsCalendar extends Vue {
 
             tbody {
                 td {
-                    background-color: #5bcbf5;
+                    background-color: #e0e0e0;
                     font-size: 24px;
-                    color: #8ddbf8;
+                    color: #B8B38B;
 
                     .el-calendar-day {
                         padding: 0;
@@ -217,7 +218,7 @@ export default class InsCalendar extends Vue {
 
 .mobile {
     .ins-calendar {
-        background-color: #0061af;
+        background-color: #C3B44F;
         text-align: center;
         box-sizing: border-box;
         padding: 2.5rem 1.8rem;
@@ -229,7 +230,7 @@ export default class InsCalendar extends Vue {
 
             .el-calendar__title {
                 display: inline-block;
-                color: #dfdc81;
+                color: #fff;
                 font-size: 2.2rem;
             }
 
@@ -271,9 +272,9 @@ export default class InsCalendar extends Vue {
 
                 tbody {
                     td {
-                        background-color: #5bcbf5;
+                        background-color: #e0e0e0;
                         font-size: 1.4rem;
-                        color: #8ddbf8;
+                        color: #B8B38B;
 
                         .el-calendar-day {
                             padding: 0;

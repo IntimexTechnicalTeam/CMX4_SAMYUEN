@@ -2,13 +2,22 @@
   <div id="container">
     <div class="CmsContent">
       <div class="rightContent">
-        <Location LocationTips="您的当前位置：" Homepage="首页" :Column="content.Category.Name" :Title="content.Title"></Location>
+        <Location :Homepage="$t('Home.Home')" :Title="content.Title"></Location>
 
         <!-- 联络我们页面 -->
         <div v-if="content.Key=='ContactUs'">
-          <div v-html="content.Body"></div>
+          <div class="maps">
+            <div v-html="mapscontent.Body"></div>
+          </div>
+          <div class="left">
+            <h1 class="CmsContentTitle">{{content.Title}}</h1>
+            <div v-html="content.Body"></div>
+          </div>
+          <div class="right">
 
-          <hr>
+          </div>
+
+          <!-- <hr> -->
 
           <div class="Form">
             <RNPForm formKey="ContactUs" />
@@ -19,6 +28,9 @@
         <div v-else>
           <h1 class="CmsContentTitle">{{content.Title}}</h1>
           <p v-html="content.Body"></p>
+          <div v-if="content.Id===30973">
+            <ins-calendar />
+          </div>
         </div>
       </div>
       <div class="clear"></div>
@@ -30,16 +42,20 @@ import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
 @Component({
   components: {
     Location: () => import('@/components/base/InsLocation.vue'),
-    RNPForm: () => import('@/views/regNPay/regNPayForm.vue')
+    RNPForm: () => import('@/views/regNPay/regNPayForm.vue'),
+    InsCalendar: () => import('@/components/business/home/InsCalendar.vue')
   }
 })
 export default class InsCmsContent extends Vue {
   content: object={};
+  mapscontent: object={};
+  contentName:string='';
 
   // 获取关于我们cms内容
   getContent () {
     this.$Api.cms.getContentByDevice({ ContentId: this.id, IsMobile: this.isMobile }).then(result => {
       this.content = result.CMS;
+      this.contentName = result.Category.Name;
       // this.$HiddenLayer();
 
       this.$nextTick(() => {
@@ -49,6 +65,11 @@ export default class InsCmsContent extends Vue {
         (document.getElementsByName('twitter:description')[0] as any).content = result.CMS.SeoDesc;
         (document.getElementsByName('twitter:title')[0] as any).content = result.CMS.Title;
       });
+    });
+  }
+  getMaps () {
+    this.$Api.cms.getContentByDevice({ key: 'maps', IsMobile: this.isMobile }).then(result => {
+      this.mapscontent = result.CMS;
     });
   }
 
@@ -62,17 +83,20 @@ export default class InsCmsContent extends Vue {
 
   mounted () {
     this.getContent();
+    this.getMaps();
   }
 
   @Watch('isMobile', { deep: true })
   onMediaChange () {
     this.getContent();
+    this.getMaps();
   }
 
   @Watch('id', { deep: true })
   onKeyChange () {
     this.content = {};
     this.getContent();
+    this.getMaps();
   }
 }
 </script>
@@ -85,9 +109,9 @@ export default class InsCmsContent extends Vue {
     margin-bottom: 30px;
   }
   .CmsContentTitle {
-    font-size: 18px;
+    font-size: 30px;
     font-weight: 700;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
     text-align: center;
   }
   .rightContent {
@@ -96,6 +120,64 @@ export default class InsCmsContent extends Vue {
     // position: relative;
     margin-bottom: 30px;
     min-height: 700px;
+    .maps{
+      margin-bottom: 50px;
+    }
+    .left{
+      margin-bottom: 15px;
+      /deep/ p{
+        text-align: center;
+      }
+    }
+    /deep/ p{
+      table{
+        width: 100%;
+        &:nth-child(1){
+          tr{
+            td:nth-child(1){
+              width: 70%;
+              display: table-cell;
+            }
+            td:nth-child(2){
+              width: 30%;
+              display: table-cell;
+              img{
+                display: block;
+                width: 100%;
+              }
+            }
+          }
+        }
+        &:nth-child(2){
+          display: block;
+          margin: 20px auto;
+          tr{
+            td{
+              width: 100%;
+              display: block;
+            }
+          }
+        }
+        &:nth-child(3){
+          tr{
+            td:nth-child(1){
+              width: 58%;
+              display: table-cell;
+              padding-right: 2%;
+              box-sizing: border-box;
+            }
+            td:nth-child(2){
+              width: 40%;
+              display: table-cell;
+              img{
+                display: block;
+                width: 100%;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 
   .Form {
@@ -103,7 +185,8 @@ export default class InsCmsContent extends Vue {
     margin: 0 auto;
 
     /deep/ .RNPForm.default {
-      background-color: #fff;
+      width: 100%;
+      // background-color: #fff;
       .FormMain {
         min-width: auto;
 
@@ -111,7 +194,7 @@ export default class InsCmsContent extends Vue {
           .btn.save {
             border: 0;
             width: 100%;
-            background-color: @base_color;
+            background-color: #C3B44F;
             border-radius: 0;
           }
 
@@ -124,7 +207,9 @@ export default class InsCmsContent extends Vue {
               padding: 0;
               border: 0;
               width: 100%;
-
+              .control-label{
+                display: none;
+              }
               .control-label-remark {
                 display: none;
               }
@@ -185,9 +270,13 @@ export default class InsCmsContent extends Vue {
   .clear {
     clear: both;
   }
+
 }
 
 .mobile {
+  .CmsContent{
+    background-color: #f2f1e2;
+  }
   .CmsContentTitle {
     font-size: 18px;
     font-weight: 700;
@@ -196,14 +285,25 @@ export default class InsCmsContent extends Vue {
     margin-top: 30px;
   }
   .rightContent {
-    width: 100%;
+    width: 90%;
+    margin: 0 auto;
     position: relative;
-    margin-bottom: 30px;
+    padding-bottom: 3rem;
+    padding-top: 1rem;
+    /deep/ p{
+      font-size: 1.2rem;
+      line-height: 1.8rem;
+      color: rgb(51, 51, 51);
+      text-align: justify;
+    }
+    /deep/ h4{
+      color: #333;
+    }
   }
 
   .Form {
     /deep/ .RNPForm.default {
-      background-color: #fff;
+      background-color: transparent;
       .FormMain {
         min-width: auto;
 
@@ -213,9 +313,10 @@ export default class InsCmsContent extends Vue {
             width: 100%;
             background-color: @base_color;
             border-radius: 0;
-            font-size: 1.1rem;
-            height: 3.2rem;
+            font-size: 1.3rem;
+            height: 3rem;
             margin: 0;
+            font-weight: bold;
           }
 
           #Anwers {
@@ -227,7 +328,9 @@ export default class InsCmsContent extends Vue {
               padding: 0;
               border: 0;
               width: 100%;
-
+              .control-label{
+                display: none;
+              }
               .control-label-remark {
                 display: none;
               }

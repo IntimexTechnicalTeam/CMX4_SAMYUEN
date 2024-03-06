@@ -18,6 +18,7 @@ export default class InsLogo extends Vue {
 .logo {
   img {
     width: 100%;
+    display: block;
   }
 }
 </style>

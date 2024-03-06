@@ -1,5 +1,5 @@
 <template>
-    <div class="cms-list">
+    <div class="cms-list fix">
         <ul>
             <li v-for="(cms,index) in cmsData" :key="index">
                 <router-link :to="'/cms/content/'+cms.Id">
@@ -52,7 +52,7 @@ export default class InsCatLayout1 extends Vue {
             }
             a{
                 display:block;
-                border:1px solid #eee;
+                border:1px solid #606266;
                 transition: all .3s ease;
             -o-transition: all .3s ease;
             -webkit-transition: all .3s ease;
@@ -136,14 +136,14 @@ export default class InsCatLayout1 extends Vue {
         //  width: 23%;
         width: 100%;
         //  float: left;
-        //  margin-right: 2.66%;
-        margin-bottom: 3.75rem;
-        //  &:nth-child(4n){
-        //    margin-right: 0%!important;
+        //  margin-right: 2%;
+        margin-bottom: 2rem;
+        //  &:nth-child(2n){
+        //    margin-right: 0;
         //  }
         a{
             display:block;
-            border:1px solid #eee;
+            border:1px solid #606266;
         //  transition: all .3s ease;
         // -o-transition: all .3s ease;
         // -webkit-transition: all .3s ease;
@@ -161,14 +161,14 @@ export default class InsCatLayout1 extends Vue {
             width: 90%;
             margin: 0 auto;
             //  padding-bottom: 20px;
-            padding-bottom: 1.6rem;
+            padding-bottom: 1rem;
             .title{
             //  font-size:18px;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             font-weight: bold;
             padding-bottom: 10px;
             border-bottom: 1px solid #eee;
-            color:#484848;
+            color:#6F5E0C;
             margin-bottom: 10px;
             text-overflow: -o-ellipsis-lastline;
             overflow: hidden;
@@ -182,16 +182,16 @@ export default class InsCatLayout1 extends Vue {
             }
             .createDate{
             //  font-size: 16px;
-            font-size: 1.2rem;
-            color:#000000;
+            font-size: 1rem;
+            color:#666;
             padding-bottom: 10px;
             }
             .desc{
             //  font-size: 14px;
             font-size: 1.2rem;
-            color:#000000;
+            color:#333;
             //  margin-bottom: 40px;
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
             text-overflow: -o-ellipsis-lastline;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -207,11 +207,11 @@ export default class InsCatLayout1 extends Vue {
             width: 100%;
             span{
                 //padding: 5px 20px;
-                padding: 0.4rem 2.8rem;
-                font-size: 1.32rem;
+                padding: 0.5rem 2rem;
+                font-size: 1.2rem;
                 font-weight: bold;
                 background: @base_color;
-                display: inline-block;
+                display: block;
                 color:#fff;
             }
             }

@@ -4,7 +4,10 @@
         <p @click="changeLang('C')" :class="{'active': $Storage.get('locale') === 'C'}">繁</p> |
         <p @click="changeLang('E')" :class="{'active': $Storage.get('locale') === 'E'}">Eng</p> -->
 
-      <p @click="changeLang(lang.value)" v-for="(lang,index) in FrontE.langList" :key="index" :class="{'active': $Storage.get('locale') === lang.value}">{{lang.name}}</p>
+      <!-- <p @click="changeLang(lang.value)" v-for="(lang,index) in FrontE.langList" :key="index" :class="{'active': $Storage.get('locale') === lang.value}">{{lang.name}}</p> -->
+      <select  v-model="currentlang">
+        <option :value="lang.value" v-for="(lang,index) in FrontE.langList" :key="index">{{lang.name}}</option>
+      </select>
     </div>
 </template>
 
@@ -12,6 +15,12 @@
 import { Component, Prop, Vue } from 'vue-property-decorator';
 @Component
 export default class InsLangSwitch extends Vue {
+  get currentlang () {
+    return this.$i18n.locale;
+  }
+  set currentlang (val) {
+    this.changeLang(val);
+  }
   changeLang (lang) {
     this.$Api.member.setUILanguage(lang).then((result) => {
       this.$i18n.locale = lang;
@@ -47,6 +56,23 @@ export default class InsLangSwitch extends Vue {
 
       &:last-child {
         padding-right: 0;
+      }
+    }
+    select{
+          width: 100%;
+    font-size: 16px;
+    background: none;
+    color: #C3B44F;
+    border: none;
+    outline: none;
+    height: 30px;
+    margin-left: 5px;
+    text-align: center;
+    cursor: pointer;
+      outline: none;
+      option{
+        color:#C3B44F;
+        outline: none;
       }
     }
 }

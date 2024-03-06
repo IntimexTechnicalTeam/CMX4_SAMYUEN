@@ -29,14 +29,11 @@ module.exports = {
     pcBuilding: false, // PC web site building
     mobileBuilding: false, // mobile web site building
     MapRegion: false, // 地区区分加载開關
-    defaultLang: 'E', // 設置網站默認語言
+    defaultLang: 'C', // 設置網站默認語言
     // 自定義語言列表 ps: 如有添加語言，請在目錄 /src/lang 下添加對應語言包文件和修改index.ts相關設置代碼
     langList: [{
       name: '繁',
       value: 'C'
-    }, {
-      name: '简',
-      value: 'S'
     }, {
       name: 'Eng',
       value: 'E'

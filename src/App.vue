@@ -63,4 +63,8 @@ export default class App extends Vue {
     opacity: 1!important;
   }
 }
+.el-message {
+  top: 6rem !important;
+  z-index: 100000 !important;
+}
 </style>

@@ -21,7 +21,7 @@ export default class RNPForm extends Vue {
       this.content = result.HtmlString;
 
       this.$nextTick(() => {
-        if (result.Title) document.title = result.Title;
+        // if (result.Title) document.title = result.Title;
         if (document.querySelectorAll('#Sign').length > 0) {
           this.Signer = new intimex.CanvasSigner('#NewSignCanvas', '#Signature', {
             color: '#58B63A',
@@ -120,9 +120,18 @@ export default class RNPForm extends Vue {
 <style lang="less" scoped>
 @media only screen and (min-width: 769px) {
     @import '../../assets/css/regnpay.less';
+    .default{
+      width: 1200px;
+      margin: 0 auto;
+    }
 }
 
 @media only screen and (max-width: 768px) {
     @import '../../assets/css/regnpay_m.less';
+    .default{
+      width: 100%;
+      margin: 0 auto;
+    }
 }
+
 </style>
